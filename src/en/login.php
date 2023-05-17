@@ -2,12 +2,12 @@
 session_start();
 require_once 'connect.php';
 
-// Form gönderildiğinde verileri işleme
+// Process data when the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($conn, $_POST["username"]); // Veriyi temizleme
     $password = $_POST["password"];
 
-    // Kullanıcı adı ve şifreyi kontrol etme
+    // Checking username and password
     $sql = "SELECT * FROM users WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
 
@@ -16,16 +16,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = $row['password'];
 
         if (password_verify($password, $hashedPassword)) {
-            // Giriş başarılı, kullanıcıyı oturum açtırma
+            // Login successful, log the user in
             $_SESSION["username"] = $username;
             header("location: index.php");
         } else {
-            // Giriş başarısız, hata mesajı gösterme
-            $error = "Geçersiz kullanıcı adı veya şifre!";
+            // Input failed, show error message
+            $error = "Invalid username or password!";
         }
     } else {
-        // Giriş başarısız, hata mesajı gösterme
-        $error = "Geçersiz kullanıcı adı veya şifre!";
+        // Input failed, show error message
+        $error = "Invalid username or password!";
     }
 }
 ?>
@@ -35,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
-			<a class="navbar-brand" href="../">Driver Download</a>
+			<a class="navbar-brand" href="../">Create Site</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-                    <a class="nav-link" href="./">Ana Sayfa</a>
+                    <a class="nav-link" href="./">Homepage</a>
                 </li>
 					<li class="nav-item active">
 						<a class="nav-link" href="login">Giriş Yap</a>
