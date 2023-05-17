@@ -1,5 +1,5 @@
 <?php
-// Veritabanı bağlantısı
+// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,21 +7,21 @@ $dbname = "site";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// PHP betiği bulunduğu dizinin adını al
+// Get the name of the directory where the PHP script is located
 $current_directory = basename(__DIR__);
 
-// Form gönderildiğinde çalışacak kod
+// Code to run when the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Kullanıcı adı, şifre ve site adı kontrolü
+  // Username, password and site name check
 
-  // Gelen verileri güvenli hale getir
+  // Secure incoming data
   $username = $conn->real_escape_string($_POST['username']);
   $password = $conn->real_escape_string($_POST['password']);
 
-  // Şifreyi hashle
+  // Hash the password
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-  // Hazırlanan ifadeyi kullanarak sorguyu oluştur
+  // Create the query using the prepared expression
   $stmt = $conn->prepare("SELECT * FROM users WHERE sites = ? AND username = ?");
   $stmt->bind_param("ss", $current_directory, $username);
   $stmt->execute();
@@ -29,17 +29,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    // Veritabanındaki şifreyi kontrol et
+    // Check the password in the database
     if (password_verify($password, $row['password'])) {
-      // Giriş başarılıysa gizli HTML kodunu göster
+      // Show hidden HTML code if login is successful
       $message = '<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Arama ve Kaynak Kodu Düzenleme</title>
+  <title>:D</title>
   <h3>Sayfa Ara ve Düzenle</h3>
-  <p>Bilgi: Sayfalarınız site/seninsiteninadı/page kısmındadır ve dosya oluştur yada ararken sonuna .html ekleyiniz.</p>
-  <p><strong><a href=sayfalar.php>Dosyalar</a></strong></p>
+  <p>Information: Your pages are located in the "site/yourwebsitename/page" section, and when creating or searching for a file, remember to add ".html" to the end.</p>
+  <p><strong><a href=sayfalar.php>Files</a></strong></p>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             codeEditor.style.display = "block";
             codeArea.value = xhr.responseText;
           } else {
-            alert("Dosya bulunamadı!");
+            alert("File not found!");
           }
         }
       };
@@ -87,9 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
-            alert("Dosya kaydedildi!");
+            alert("File saved!");
           } else {
-            alert("Dosya kaydedilirken bir hata oluştu!");
+            alert("An error occurred while saving the file!");
           }
         }
       };
@@ -122,16 +122,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					alert(response);
 				},
 				error: function() {
-					alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+					alert("An error has occurred. Please try again.");
 				}
 			});
 		}
 	</script>
 <div>
-<h3>Resim yükle sitene ekle</h3>
+<h3>Upload image</h3>
 <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="image" id="fileInput" />
-    <input type="submit" value="Yükle" id="uploadButton" />
+    <input type="submit" value="Upload" id="uploadButton" />
 </form>
 </div>
 <div id="progressBar" style="width: 0%;"></div>
@@ -168,23 +168,23 @@ $(document).ready(function() {
 });
 </script>
 
-	<p><strong><a href=resimler.php>Resimler</a></strong></p>
+	<p><strong><a href=resimler.php>İmage</a></strong></p>
 </head>
 <h3>Sayfa Oluştur</h3>
       
 <form method="POST" action="sayfa.php">
     <div class="input-group">
         <input type="text" class="form-control" name="dosya_adi" required>
-        <button type="submit" class="btn btn-primary">Sayfa Oluştur</button>
+        <button type="submit" class="btn btn-primary">Create Page</button>
     </div>
 	
 </form>
 
 <div>
-<h3>HTML, PHP, CSS, ASP Dosyası yükle</h3>
+<h3>Upload HTML, PHP, CSS, ASP File</h3>
 <form id="uploadForm1" action="upload2.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="image" id="fileInput1" />
-    <input type="submit" value="Yükle" id="uploadButton1" />
+    <input type="submit" value="Upload" id="uploadButton1" />
 </form>
 </div>
 <div id="progressBar2" style="width: 0%;"></div>
@@ -224,29 +224,29 @@ $(document).ready(function() {
 </script>
 
 <body>
-	<h3>Anasayfayı düzenle</h3>
+	<h3>Edit homepage</h3>
 	<textarea id="editor" rows="10" cols="50"></textarea>
 	<br>
-	<button onclick="saveChanges()">Kaydet</button>
+	<button onclick="saveChanges()">Save</button>
 </body>
 </html>';
     } else {
-      // Giriş başarısızsa hata mesajı göster
-      $message = '<div class="alert alert-danger" role="alert">Kullanıcı adı, şifre veya site adı yanlış.</div>';
+      // Show error message if input failed
+      $message = '<div class="alert alert-danger" role="alert">Username, password or site name is incorrect.</div>';
     }
   } else {
-    // Giriş başarısızsa hata mesajı göster
-    $message = '<div class="alert alert-danger" role="alert">Kullanıcı adı, şifre veya site adı yanlış.</div>';
+    // Show error message if input failed
+    $message = '<div class="alert alert-danger" role="alert">Username, password or site name is incorrect.</div>';
   }
 }
 
-// HTML formu
+// HTML form
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Site Düzenleme</title>
+  <title>Site Editing</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -263,15 +263,15 @@ $(document).ready(function() {
   <?php echo isset($message) ? $message : ''; ?>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="form-group">
-	<h2>Giriş Yap</h2>
-      <label for="username">Kullanıcı Adı:</label>
+	<h2>Sign in</h2>
+      <label for="username">Username:</label>
       <input type="text" class="form-control" id="username" name="username">
     </div>
     <div class="form-group">
-      <label for="password">Şifre:</label>
+      <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Giriş</button>
+    <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div>
 </div>
@@ -279,6 +279,6 @@ $(document).ready(function() {
 </html>
 
 <?php
-// Veritabanı bağlantısını kapat
+// Close database connection
 $conn->close();
 ?>
