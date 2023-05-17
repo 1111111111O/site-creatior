@@ -20,4 +20,6 @@ Resimler: image/
 Dosyalar: src/
 SQL Dosyası: sql/
 
+(SQL Name: site)
+
 Be back soon.
