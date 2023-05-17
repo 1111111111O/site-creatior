@@ -45,13 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="nav-link" href="./">Homepage</a>
                 </li>
 					<li class="nav-item active">
-						<a class="nav-link" href="login">Giriş Yap</a>
+						<a class="nav-link" href="login">Login</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="register">Kayıt Ol</a>
+						<a class="nav-link" href="register">Register</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="logout">Çıkış Yap</a>
+						<a class="nav-link" href="logout">Logout</a>
 					</li>
 				</ul>
 			</div>
@@ -74,17 +74,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="form-group">
 	<h2>Giriş Yap</h2>
-      <label for="username">Kullanıcı Adı:</label>
+      <label for="username">Username:</label>
       <input type="text" class="form-control" id="username" name="username">
     </div>
     <div class="form-group">
-      <label for="password">Şifre:</label>
+      <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" name="password">
     </div>
 	            <?php if(isset($error)) { ?>
                 <div class="alert alert-danger"><?php echo $error; ?></div>
             <?php } ?>
-    <button type="submit" class="btn btn-primary">Giriş</button>
+    <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div>
 </div>
