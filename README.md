@@ -1,6 +1,22 @@
 # site-olusturma-sitesi
-Site klasörünün içindeki dosyaları xampp/htdocsa atın. Daha sonra tarayıcıdan localhost/phpmyadmin yazın create kısmından new database deyin database ismi site
-daha sonra import dedikten sonra sql klasöründeki dosyayı seçip import edin. Şimdi anasayfada kayıt ol giriş yap çıkış yap site oluştur görebileceksiniz.
-Site oluşturursanız site adında klasör oluşur klasörde index.html ana sayfa editor.php ve save.php yer alır bunlar dosyayı düzenlemek içindir.
-editor.php'ye girerken yine giriş yapmanız istenecektir oluşturduğunuz diğer hesapları girmeye çalışırsanız olmaz sadece siteyi oluşturduğun hesapla girebilirsin.
-Mantığı şöyle sql kısmında users tablosu sites kısmında sen hangi siteyi oluşturduysan o yazar ona göre hesaplanıyor tek site oluşturabiliyosun oyüzden.
+
+English:
+
+Updates: The Editor page has been redesigned with added features such as page creation, page editing, and image uploading. The appearance has been enhanced, and bugs have been fixed. The login and registration screen has been modernized and made mobile-friendly. File creation for PHP, CSS, HTML, and ASP has been added. Viewing all created files is now possible. An option to upload ready-made HTML files has been included. Two language options. (English, Turkish)
+
+Upcoming additions: Visual editing (beta)
+
+Images: image/
+Files: src/
+SQL File: sql/
+
+Turkish:
+
+Yenilikler: Editor sayfası yenilendi sayfa oluşturma, sayfa düzenleme, resim yükleme eklendi görünüm güzelleştirildi hatalar düzeltildi. Giriş yap kayıt ol ekranı modernleşti ve mobile uygun hale getirildi. PHP, CSS, HTML, ASP dosya oluşturma eklendi. Oluşturulan tüm dosyaları görüntüleme, iki dil desteği eklendi.
+
+Eklenecekler: Görsel düzenleme (beta)
+Resimler: image/
+Dosyalar: src/
+SQL Dosyası: sql/
+
+Be back soon.
