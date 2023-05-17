@@ -8,7 +8,7 @@ if(isset($_SESSION['username'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo "Nasılsın, ".$row["username"]."?";
+        echo "How are you, ".$row["username"]."?";
     }
 } else {
     echo '<a href="register">Register Now</a>';
