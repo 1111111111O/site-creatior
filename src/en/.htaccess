@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /site/
+RewriteRule ^login$ login.php [L]
+RewriteRule ^register$ register.php [L]
+RewriteRule ^logout$ logout.php [L]
