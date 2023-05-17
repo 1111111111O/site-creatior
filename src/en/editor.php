@@ -170,7 +170,7 @@ $(document).ready(function() {
 
 	<p><strong><a href=resimler.php>İmage</a></strong></p>
 </head>
-<h3>Sayfa Oluştur</h3>
+<h3>Page Create</h3>
       
 <form method="POST" action="sayfa.php">
     <div class="input-group">
