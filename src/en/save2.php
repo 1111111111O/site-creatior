@@ -2,16 +2,16 @@
 $filename = $_POST['filename'];
 $code = $_POST['code'];
 
-// Dosya yolunu kontrol etmek için gerekli önlemler alınmalıdır.
+// Measures should be taken to control the file path.
 $file = 'page/' . $filename;
 
-// Dosyanın kaynak kodunu güncelleyin.
+// Update the source code of the file.
 file_put_contents($file, $code);
 
-// İşlem sonucunu kontrol edin ve uygun bir yanıt döndürün.
+// Check the result of the operation and return an appropriate response.
 if (file_exists($file)) {
-  echo 'Dosya kaydedildi!';
+  echo 'File saved!';
 } else {
-  echo 'Dosya kaydedilirken bir hata oluştu!';
+  echo 'Youre not smart, stupid.';
 }
 ?>
