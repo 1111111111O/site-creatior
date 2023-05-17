@@ -11,7 +11,7 @@ if(isset($_SESSION['username'])) {
         echo "Nasılsın, ".$row["username"]."?";
     }
 } else {
-    echo '<a href="register">Kayıt Ol</a>';
+    echo '<a href="register">Register Now</a>';
 }
 
 
@@ -20,29 +20,29 @@ if(isset($_SESSION['username'])) {
 <html lang="tr">
 <head>
 	<meta charset="UTF-8">
-	<title>Driver Download</title>
+	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
-			<a class="navbar-brand" href="../">Driver Download</a>
+			<a class="navbar-brand" href="../">Create Site</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-                    <a class="nav-link" href="">Ana Sayfa</a>
+                    <a class="nav-link" href="">Homepage</a>
                 </li>
 					<li class="nav-item">
-						<a class="nav-link" href="login">Giriş Yap</a>
+						<a class="nav-link" href="login">Login</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="register">Kayıt Ol</a>
+						<a class="nav-link" href="register">Register</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="logout">Çıkış Yap</a>
+						<a class="nav-link" href="logout">Logout</a>
 					</li>
 				</ul>
 			</div>
@@ -50,9 +50,9 @@ if(isset($_SESSION['username'])) {
 	</nav>
 
 	<div class="container my-5">
-		<h1>Hoşgeldiniz</h1>
-		<p>Sitemize kayıt olarak kendi sitelerinizi oluşturabilirsiniz. Düzenlemek için <a href=http://driverdownload.duckdns.org/site/helloworld/editor.php>site/siteadın/editor.php</a></p>
-		<p><strong>Yenilikler: Editor sayfası yenilendi sayfa oluşturma, sayfa düzenleme, resim yükleme eklendi resimleri görüntüleme görünüm güzelleştirildi hatalar düzeltildi. Giriş yap kayıt ol ekranı modernleşti ve mobile uygun hale getirildi. PHP, CSS, HTML, ASP dosya oluşturma eklendi. Oluşturulan tüm dosyaları görüntüleme düzenleme, sayfa(HTML, PHP vs.) yükleme ve iki dil desteği eklendi.<br><br>Eklenecekler: Görsel düzenleme(beta)</strong></p>
+		<h1>Welcome</h1>
+		<p>You can create your own sites by registering on our site. To edit <a href=helloworld/editor.php>site/yoursitename/editor.php</a></p>
+		<p><strong>The Editor page has been redesigned with added features such as page creation, page editing, and image uploading. The appearance has been enhanced, and bugs have been fixed. The login and registration screen has been modernized and made mobile-friendly. File creation for PHP, CSS, HTML, and ASP has been added. Viewing all created files is now possible. An option to upload ready-made HTML files has been included. Two language options.<br><br>Upcoming additions: Visual editing (beta)</strong></p>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -63,7 +63,7 @@ if(isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Site Oluşturma</title>
+	<title>Site Creation</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -72,13 +72,13 @@ if(isset($_SESSION['username'])) {
 <body>
 
 	<div class="container">
-		<h2>Site Oluşturma</h2>
+		<h2>Site Creation</h2>
 		<form method="post" action="create_site.php">
 			<div class="form-group">
-				<label for="sitename">Site Adı:</label>
-				<input type="text" class="form-control" id="sitename" placeholder="Site Adı" name="sitename">
+				<label for="sitename">Site Name:</label>
+				<input type="text" class="form-control" id="sitename" placeholder="Site Name" name="sitename">
 			</div>
-			<button type="submit" class="btn btn-primary" name="submit">Site Oluştur</button>
+			<button type="submit" class="btn btn-primary" name="submit">Create Site</button>
 		</form>
 
 		<hr>
@@ -87,16 +87,16 @@ if(isset($_SESSION['username'])) {
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Siteler</th>
+					<th>Sites</th>
 				</tr>
 			</thead>
 			<tbody>
 					<?php
-				include 'connect.php'; // veritabanı bağlantısı için connect.php dosyasını dahil ediyoruz
+				include 'connect.php'; // we include the connect.php file for database connection
 
 			
 
-				if(isset($_SESSION['username'])){ // kullanıcı kayıtlı ise
+				if(isset($_SESSION['username'])){ // if the user is registered
 
 					$username = $_SESSION['username'];
 
@@ -107,24 +107,24 @@ if(isset($_SESSION['username'])) {
 
 						$row = mysqli_fetch_assoc($result);
 
-						if($row['sites'] != ""){ // oluşturulmuş siteler varsa
+						if($row['sites'] != ""){ // If there are created sites
 
 							$sites = explode(',', $row['sites']);
 
 							foreach ($sites as $site) {
-								echo "<tr><td>http://driverdownload.duckdns.org/site/$site</td></tr>";
+								echo "<tr><td>$site</td></tr>";
 							}
 							
 							
 
 						} else {
-							echo "<tr><td>Henüz site oluşturulmadı!</td></tr>";
+							echo "<tr><td>No site created yet!</td></tr>";
 						}
 
 					}
 
 				} else {
-					echo "<tr><td>Kayıtlı Değilsin!</td></tr>";
+					echo "<tr><td>You are not registered!</td></tr>";
 				}
 				?>
 			</tbody>

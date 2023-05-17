@@ -12,16 +12,16 @@ if(isset($_FILES['image'])){
     $extensions = array("jpeg","jpg","png");
     
     if(!in_array($file_ext, $extensions)){
-        $errors[] = "Uzantı desteklenmiyor, lütfen JPEG veya PNG dosyası yükleyin.";
+        $errors[] = "Extension not supported, please upload JPEG or PNG file.";
     }
     
     if($file_size > 2097152){
-        $errors[] = 'Dosya boyutu 2MB\'dan küçük olmalıdır.';
+        $errors[] = 'File size should be smaller than 2MB\.';
     }
     
     if(empty($errors)){
         move_uploaded_file($file_tmp, "image/".$file_name);
-        echo "Resim başarıyla yüklendi: site/siteninadı/image/".$file_name;
+        echo "Image uploaded successfully: site/yoursitename/image/".$file_name;
     }else{
         print_r($errors);
     }

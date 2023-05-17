@@ -1,13 +1,13 @@
 <?php
-include 'connect.php'; // veritabanı bağlantısı için connect.php dosyasını dahil ediyoruz
+include 'connect.php'; // we include the connect.php file for database connection
 
-session_start(); // session'ı başlatıyoruz
+session_start(); // initializing the session
 
-if(!isset($_SESSION['username'])){ // kullanıcı girişi yapılmamışsa
-    header("Location: register"); // login.php sayfasına yönlendiriyoruz
+if(!isset($_SESSION['username'])){ // if the user is not logged in
+    header("Location: register"); // redirect to login.php page
 }
 
-if(isset($_POST['submit'])){ // form gönderildi mi kontrol ediyoruz
+if(isset($_POST['submit'])){ // checking if the form has been submitted
 
     $sitename = $_POST['sitename'];
 
@@ -16,120 +16,120 @@ if(isset($_POST['submit'])){ // form gönderildi mi kontrol ediyoruz
     $query = "SELECT * FROM users WHERE username='$username'";
     $result = mysqli_query($conn, $query);
 
-    if(mysqli_num_rows($result) > 0){ // kullanıcı kayıtlı ise
+    if(mysqli_num_rows($result) > 0){ // if the user is registered
 
         $row = mysqli_fetch_assoc($result);
 
-        if($row['sites'] == ""){ // daha önce bir site oluşturulmadıysa
+        if($row['sites'] == ""){ // if a site has not been created before
 
-            // kontrol etmek için oluşturulacak klasör yolunu tanımlıyoruz
+            // we define the path to the folder to be created to control
             $folder_path = __DIR__ . "/$sitename";
 
-            // klasör daha önce oluşturulmuşsa hata mesajı gösteriyoruz
+            // we show an error message if the folder has already been created
             if(file_exists($folder_path)){
                 echo "Aynı isimde bir site bulunuyor. Lütfen başka bir isim deneyin.";
                 exit;
             }
 
-            // sites adını veritabanına kaydediyoruz
+            // save the sites name in the database
             $query = "UPDATE users SET sites='$sitename' WHERE username='$username'";
             mysqli_query($conn, $query);
 
-            // site adıyla bir klasör oluşturuyoruz
+            // create a folder with the site name
             mkdir($folder_path);
 
-            // klasöre index.html dosyası oluşturuyoruz
+            // create an index.html file in the folder
             $file = fopen("$folder_path/index.html","w");
 
-            // index.html dosyasına yazıyoruz
+            // write to index.html file
             fwrite($file,"<html><head><title>$sitename</title></head><body><h1>$sitename</h1><p>Welcome to my website!</p></body></html>");
 
-            // editor.php ve save.php dosyalarını kopyalayarak klasöre atıyoruz
+            // copy the editor.php and save.php files and put them in the folder
             if (copy("editor.php", $folder_path . "/editor.php")) {
-                echo "Dosya kopyalandı: editor.php -> " . $folder_path . "/editor.php <br>";
+                echo "File copied: editor.php -> " . $folder_path . "/editor.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: editor.php -> " . $folder_path . "/editor.php <br>";
+                echo "Failed to copy file: editor.php -> " . $folder_path . "/editor.php <br>";
             }
 
             if (copy("save.php", $folder_path . "/save.php")) {
-                echo "Dosya kopyalandı: save.php -> " . $folder_path . "/save.php <br>";
+                echo "File copied: save.php -> " . $folder_path . "/save.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: save.php -> " . $folder_path . "/save.php <br>";
+                echo "Failed to copy file: save.php -> " . $folder_path . "/save.php <br>";
             }
 			
 			if (copy("save2.php", $folder_path . "/save2.php")) {
-                echo "Dosya kopyalandı: save2.php -> " . $folder_path . "/save2.php <br>";
+                echo "File copied: save2.php -> " . $folder_path . "/save2.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: save2.php -> " . $folder_path . "/save2.php <br>";
+                echo "Failed to copy file: save2.php -> " . $folder_path . "/save2.php <br>";
             }
 			
 			if (copy("upload.php", $folder_path . "/upload.php")) {
-                echo "Dosya kopyalandı: upload.php -> " . $folder_path . "/upload.php <br>";
+                echo "File copied: upload.php -> " . $folder_path . "/upload.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: upload.php -> " . $folder_path . "/upload.php <br>";
+                echo "Failed to copy file: upload.php -> " . $folder_path . "/upload.php <br>";
             }
 			
 			if (copy("sayfa.php", $folder_path . "/sayfa.php")) {
-                echo "Dosya kopyalandı: sayfa.php -> " . $folder_path . "/sayfa.php <br>";
+                echo "File copied: sayfa.php -> " . $folder_path . "/sayfa.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: sayfa.php -> " . $folder_path . "/sayfa.php <br>";
+                echo "Failed to copy file: sayfa.php -> " . $folder_path . "/sayfa.php <br>";
             }
 		
 			if (copy("sayfalar.php", $folder_path . "/sayfalar.php")) {
-                echo "Dosya kopyalandı: sayfalar.php -> " . $folder_path . "/sayfalar.php <br>";
+                echo "File copied: sayfalar.php -> " . $folder_path . "/sayfalar.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: sayfalar.php -> " . $folder_path . "/sayfalar.php <br>";
+                echo "Failed to copy file: sayfalar.php -> " . $folder_path . "/sayfalar.php <br>";
             }
 			
 			if (copy("upload2.php", $folder_path . "/upload2.php")) {
-                echo "Dosya kopyalandı: upload2.php -> " . $folder_path . "/upload2.php <br>";
+                echo "File copied: upload2.php -> " . $folder_path . "/upload2.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: upload2.php -> " . $folder_path . "/upload2.php <br>";
+                echo "Failed to copy file: upload2.php -> " . $folder_path . "/upload2.php <br>";
             }
 			
 				if (copy("resimler.php", $folder_path . "/resimler.php")) {
-                echo "Dosya kopyalandı: resimler.php -> " . $folder_path . "/resimler.php <br>";
+                echo "File copied: resimler.php -> " . $folder_path . "/resimler.php <br>";
             } else {
-                echo "Dosya kopyalanamadı: resimler.php -> " . $folder_path . "/resimler.php <br>";
+                echo "Failed to copy file: resimler.php -> " . $folder_path . "/resimler.php <br>";
             }
 			
 			
-			$folder_path1 = "$folder_path/image"; // İlk klasör adı
-			$folder_path2 = "$folder_path/page"; // İkinci klasör adı
+			$folder_path1 = "$folder_path/image"; // First folder name
+			$folder_path2 = "$folder_path/page"; // Second folder name
 
-			// İlk klasörü oluşturma
+			// Create the first folder
 			if (!is_dir($folder_path1)) {
     if (mkdir($folder_path1)) {
-        echo "Klasör oluşturuldu: $folder_path1 <br>";
+        echo "Folder created: $folder_path1 <br>";
     } else {
-        echo "Klasör oluşturulamadı: $folder_path1 <br>";
+        echo "Failed to create folder: $folder_path1 <br>";
     }
 } else {
-    echo "Klasör zaten mevcut: $folder_path1 <br>";
+    echo "The folder already exists: $folder_path1 <br>";
 }
 
-			// İkinci klasörü oluşturma
+			// Create the second folder
 			if (!is_dir($folder_path2)) {
     if (mkdir($folder_path2)) {
-        echo "Klasör oluşturuldu: $folder_path2 <br>";
+        echo "Folder created: $folder_path2 <br>";
     } else {
-        echo "Klasör oluşturulamadı: $folder_path2 <br>";
+        echo "Failed to create folder: $folder_path2 <br>";
     }
 } else {
-    echo "Klasör zaten mevcut: $folder_path2 <br>";
+    echo "The folder already exists: $folder_path2 <br>";
 }
             fclose($file);
 
-            echo "Site oluşturuldu!";
-            header("Refresh: 0; url=./");
+            echo "Site created!";
+            header("Refresh: 2; url=./");
         } else {
-            echo "Daha önce bir site oluşturulmuş!";
+            echo "A site has been created before!";
             header("Refresh: 2; url=./");
         }
 
     } else {
-        echo "Kullanıcı kayıtlı değil!";
-        header("Refresh: ; url=./");
+        echo "User not registered!";
+        header("Refresh: 2; url=./");
     }
 }
 

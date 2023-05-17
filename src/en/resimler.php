@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Resimler</title>
+  <title>Images</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
@@ -27,8 +27,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Resimler</h1>
-	<p>Herkese açıktır.</p>
+    <h1>Images</h1>
+	<p>Public.</p>
     <ul class="list-group">
       <?php
         $dosyaKlasoru = "image/";
@@ -44,8 +44,8 @@
 </body>
 <body>
   <div class="container">
-    <p>Sitenin içeriği burada olabilir.</p>
-    <a class="back-link" href="editor.php">&larr; Geri Dön</a>
+    <p>The content of the site can be here.</p>
+    <a class="back-link" href="editor.php">&larr; Go Back</a>
   </div>
 </body>
 </html>

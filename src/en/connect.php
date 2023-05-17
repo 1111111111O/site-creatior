@@ -4,10 +4,10 @@ $username = "root";
 $password = "";
 $dbname = "site";
 
-// MySQL bağlantısı oluşturma
+// Create MySQL connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Bağlantı hatası kontrolü
+// Connection error check
 if (!$conn) {
     die("Bağlantı hatası: " . mysqli_connect_error());
 }

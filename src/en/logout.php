@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Kullanıcının oturumunu sonlandır
+// End the user's session
 session_destroy();
 
-// Ana sayfaya yönlendir
+// Redirect to home page
 header("Location: .");
 exit;
 ?>
