@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <?php echo isset($message) ? $message : ''; ?>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="form-group">
-	<h2>Giriş Yap</h2>
+	<h2>Login</h2>
       <label for="username">Username:</label>
       <input type="text" class="form-control" id="username" name="username">
     </div>
