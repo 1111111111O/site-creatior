@@ -32,6 +32,9 @@ if(isset($_SESSION['username'])) {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+						<a class="nav-link" href="../en">English</a>
+					</li>
 				<li class="nav-item active">
                     <a class="nav-link" href="">Ana Sayfa</a>
                 </li>
@@ -51,7 +54,7 @@ if(isset($_SESSION['username'])) {
 
 	<div class="container my-5">
 		<h1>Hoşgeldiniz</h1>
-		<p>Sitemize kayıt olarak kendi sitelerinizi oluşturabilirsiniz. Düzenlemek için <a href=http://driverdownload.duckdns.org/site/helloworld/editor.php>site/siteadın/editor.php</a></p>
+		<p>Sitemize kayıt olarak kendi sitelerinizi oluşturabilirsiniz. Düzenlemek için <a href=http://driverdownload.duckdns.org/site/tr/helloworld/editor.php>site/tr/siteadın/editor.php</a></p>
 		<p><strong>Yenilikler: Editor sayfası yenilendi sayfa oluşturma, sayfa düzenleme, resim yükleme eklendi resimleri görüntüleme görünüm güzelleştirildi hatalar düzeltildi. Giriş yap kayıt ol ekranı modernleşti ve mobile uygun hale getirildi. PHP, CSS, HTML, ASP dosya oluşturma eklendi. Oluşturulan tüm dosyaları görüntüleme düzenleme, sayfa(HTML, PHP vs.) yükleme ve iki dil desteği eklendi.<br><br>Eklenecekler: Görsel düzenleme(beta)</strong></p>
 	</div>
 
@@ -112,7 +115,7 @@ if(isset($_SESSION['username'])) {
 							$sites = explode(',', $row['sites']);
 
 							foreach ($sites as $site) {
-								echo "<tr><td>http://driverdownload.duckdns.org/site/$site</td></tr>";
+								echo "<tr><td><a href=http://driverdownload.duckdns.org/site/tr/$site>Siten</td></tr>";
 							}
 							
 							

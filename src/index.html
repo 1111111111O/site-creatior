@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get("https://ipapi.co/json/", function(response) {
+                var country = response.country;
+                if (country === "TR") {
+                    window.location.href = "/site/tr";
+                } else {
+                    window.location.href = "/site/en";
+                }
+            });
+        });
+    </script>
+</head>
+</html>

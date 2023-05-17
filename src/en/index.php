@@ -8,7 +8,7 @@ if(isset($_SESSION['username'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo "Nasılsın, ".$row["username"]."?";
+        echo "How are you, ".$row["username"]."?";
     }
 } else {
     echo '<a href="register">Register Now</a>';
@@ -73,7 +73,7 @@ if(isset($_SESSION['username'])) {
 
 	<div class="container">
 		<h2>Site Creation</h2>
-		<form method="post" action="create_site.php">
+		<form method="post" action="../tr/create_site_en.php">
 			<div class="form-group">
 				<label for="sitename">Site Name:</label>
 				<input type="text" class="form-control" id="sitename" placeholder="Site Name" name="sitename">
@@ -83,7 +83,7 @@ if(isset($_SESSION['username'])) {
 
 		<hr>
 
-		<h2>Oluşturulan Siteler</h2>
+		<h2>Created Sites</h2>
 		<table class="table">
 			<thead>
 				<tr>
@@ -112,7 +112,7 @@ if(isset($_SESSION['username'])) {
 							$sites = explode(',', $row['sites']);
 
 							foreach ($sites as $site) {
-								echo "<tr><td>$site</td></tr>";
+								echo "<tr><td><a href=http://driverdownload.duckdns.org/site/tr/$site>Your Site</td></tr>";
 							}
 							
 							

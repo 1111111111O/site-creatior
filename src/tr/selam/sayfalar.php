@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Pages</title>
+  <title>Sitenin sayfaları.</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
@@ -27,8 +27,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Pages</h1>
-	<p>Public.</p>
+    <h1>Sayfalar</h1>
+	<p>Herkese açıktır.</p>
     <ul class="list-group">
       <?php
         $dosyaKlasoru = "page";
@@ -44,8 +44,8 @@
 </body>
 <body>
   <div class="container">
-    <p>The content of the site can be here.</p>
-    <a class="back-link" href="editor.php">&larr; Go Back</a>
+    <p>Sitenin içeriği burada olabilir.</p>
+    <a class="back-link" href="editor.php">&larr; Geri Dön</a>
   </div>
 </body>
 </html>

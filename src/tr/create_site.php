@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){ // form gönderildi mi kontrol ediyoruz
             $file = fopen("$folder_path/index.html","w");
 
             // index.html dosyasına yazıyoruz
-            fwrite($file,"<html><head><title>$sitename</title></head><body><h1>$sitename</h1><p>Welcome to my website!</p></body></html>");
+            fwrite($file,"<!DOCTYPE html><html><head><title>$sitename</title></head><body><h1>$sitename</h1><p>Welcome to my website! <a href=editor.php>Editor</a> </p></body></html>");
 
             // editor.php ve save.php dosyalarını kopyalayarak klasöre atıyoruz
             if (copy("editor.php", $folder_path . "/editor.php")) {
@@ -92,7 +92,6 @@ if(isset($_POST['submit'])){ // form gönderildi mi kontrol ediyoruz
             } else {
                 echo "Dosya kopyalanamadı: resimler.php -> " . $folder_path . "/resimler.php <br>";
             }
-			
 			
 			$folder_path1 = "$folder_path/image"; // İlk klasör adı
 			$folder_path2 = "$folder_path/page"; // İkinci klasör adı

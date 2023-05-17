@@ -12,16 +12,16 @@ if(isset($_FILES['image'])){
     $extensions = array("html","php","css", "asp");
     
     if(!in_array($file_ext, $extensions)){
-        $errors[] = "Extension is not supported. Please use files with html, php, css, asp extensions.";
+        $errors[] = "Uzantı desteklenmiyor.";
     }
     
     if($file_size > 2097152){
-        $errors[] = 'File size should be smaller than 2MB\.';
+        $errors[] = 'Dosya boyutu 2MB\'dan küçük olmalıdır.';
     }
     
     if(empty($errors)){
         move_uploaded_file($file_tmp, "page/".$file_name);
-        echo "File uploaded successfully: site/yoursitename/page/".$file_name;
+        echo "Dosya başarıyla yüklendi: site/siteninadı/page/".$file_name;
     }else{
         print_r($errors);
     }
