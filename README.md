@@ -15,6 +15,7 @@ Turkish:
 Yenilikler: Editor sayfası yenilendi sayfa oluşturma, sayfa düzenleme, resim yükleme eklendi görünüm güzelleştirildi hatalar düzeltildi. Giriş yap kayıt ol ekranı modernleşti ve mobile uygun hale getirildi. PHP, CSS, HTML, ASP dosya oluşturma eklendi. Oluşturulan tüm dosyaları görüntüleme, iki dil desteği eklendi.
 
 Eklenecekler: Görsel düzenleme (beta)
+
 Resimler: image/
 Dosyalar: src/
 SQL Dosyası: sql/
