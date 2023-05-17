@@ -20,7 +20,7 @@ if(isset($_SESSION['username'])) {
 <html lang="tr">
 <head>
 	<meta charset="UTF-8">
-	<title>Driver Download</title>
+	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -33,7 +33,7 @@ if(isset($_SESSION['username'])) {
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-                    <a class="nav-link" href="">Ana Sayfa</a>
+                    <a class="nav-link" href="">Homepage</a>
                 </li>
 					<li class="nav-item">
 						<a class="nav-link" href="login">Login</a>
