@@ -103,7 +103,7 @@
 <body>
     <div id="acilisEkrani">
         <div class="mesaj">
-            <h2>Dikkat!</h2>
+            <h2>Attention!</h2>
             <p>Information: This is an editor page, please replace the helloworld part in the URL section with the name of your own website to edit it.</p>
  <button onclick="kapat()">OK</button>
         </div>
