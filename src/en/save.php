@@ -5,9 +5,9 @@ if(isset($_POST['data'])) {
 	$file = fopen("index.html", "w");
 	fwrite($file, $data);
 	fclose($file);
-	echo "Değişiklikler kaydedildi.";
+	echo "Changes were recorded.";
 } else {
-	echo "Geçersiz istek.";
+	echo "Invalid request.";
 }
 
 ?>
