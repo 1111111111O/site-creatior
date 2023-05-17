@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <title>:D</title>
-  <h3>Sayfa Ara ve Düzenle</h3>
+  <h3>Page Search and Edit</h3>
   <p>Information: Your pages are located in the "site/yourwebsitename/page" section, and when creating or searching for a file, remember to add ".html" to the end.</p>
   <p><strong><a href=sayfalar.php>Files</a></strong></p>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
