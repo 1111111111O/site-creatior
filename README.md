@@ -20,7 +20,8 @@ Resimler: image/
 Dosyalar: src/
 SQL Dosyası: sql/
 
-(SQL Name: site)
-Official Site: http://driverdownload.duckdns.org/site
-Even if you only have English language on your site, throw everything in the src folder to your site for the codes to work.
+(SQL Name: site)<br>
+Official Site: http://driverdownload.duckdns.org/site<br>
+Even if you only have English language on your site, throw everything in the src folder to your site for the codes to work.<br>
+The site starts as Turkish or English according to the ip at the entrance. But the site creation files are in the tr/ folder. English php files in tr: (create_site_en.php, editor_en.php)
 Be back soon.
