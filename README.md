@@ -23,5 +23,5 @@ SQL Dosyası: sql/
 (SQL Name: site)<br>
 Official Site: http://driverdownload.duckdns.org/site<br>
 Even if you only have English language on your site, throw everything in the src folder to your site for the codes to work.<br>
-The site starts as Turkish or English according to the ip at the entrance. But the site creation files are in the tr/ folder. English php files in tr: (create_site_en.php, editor_en.php)
+The site starts as Turkish or English according to the ip at the entrance. But the site creation files are in the tr/ folder. English php files in tr: (create_site_en.php, editor_en.php)<br>
 Be back soon.
