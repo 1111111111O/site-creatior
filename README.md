@@ -21,5 +21,6 @@ Dosyalar: src/
 SQL Dosyası: sql/
 
 (SQL Name: site)
-
+Official Site: http://driverdownload.duckdns.org/site
+Even if you only have English language on your site, throw everything in the src folder to your site for the codes to work.
 Be back soon.
